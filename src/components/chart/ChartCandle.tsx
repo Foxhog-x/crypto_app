@@ -1,7 +1,7 @@
 import { createChart, IChartApi } from "lightweight-charts";
 import { useEffect, useRef, useState } from "react";
 import WatchList from "../Watchlist";
-
+import { UTCTimestamp } from "lightweight-charts";
 interface CandleData {
   name: string;
   time_frame: string;
@@ -10,20 +10,21 @@ interface CandleData {
   high: number;
   low: number;
   volume: number;
-  time: number; // Store time as a Unix timestamp
+  time: number;
 }
 
 const timeFrames = ["1m", "3m", "5m"];
 
 export default function ChartCandle() {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
-  const [loading, setLoading] = useState(true); // Loader state
+  // const [loading, setLoading] = useState(true);
 
   const [currency, setCurrency] = useState("btcusdt");
   const [timeFrame, setTimeFrame] = useState("1m");
   const chartRef = useRef<IChartApi | null>(null);
   const [candleStickData, setCandleStickData] = useState<CandleData[]>([]);
-  const candleStickChartRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const candleStickChartRef = useRef<any | null>(null);
   const currentCandleRef = useRef<CandleData | null>(null);
 
   useEffect(() => {
@@ -52,7 +53,7 @@ export default function ChartCandle() {
         timeScale: {
           timeVisible: true,
           secondsVisible: false,
-          tickMarkFormatter: (time) => {
+          tickMarkFormatter: (time: UTCTimestamp) => {
             const date = new Date(time * 1000);
             return date.toLocaleTimeString();
           },
@@ -164,7 +165,7 @@ export default function ChartCandle() {
     }
   }, [candleStickData]);
 
-  const handleSelectedCoin = (coin) => {
+  const handleSelectedCoin = (coin: string) => {
     setCurrency(coin.toLowerCase());
   };
 

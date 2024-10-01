@@ -1,6 +1,12 @@
 import CryptoItem from "./CryptoItem";
-
-export default function WatchList({ handleSelectedCoin, currency }) {
+interface CryptoItemProps {
+  handleSelectedCoin: (value: string) => void;
+  currency: string;
+}
+export default function WatchList({
+  handleSelectedCoin,
+  currency,
+}: CryptoItemProps) {
   return (
     <CryptoItem handleSelectedCoin={handleSelectedCoin} currency={currency} />
   );

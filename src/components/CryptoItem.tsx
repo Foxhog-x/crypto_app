@@ -1,4 +1,11 @@
-export default function CryptoItem({ handleSelectedCoin, currency }) {
+interface CryptoItemProps {
+  handleSelectedCoin: (value: string) => void;
+  currency: string;
+}
+export default function CryptoItem({
+  handleSelectedCoin,
+  currency,
+}: CryptoItemProps) {
   const coinsList = [
     { name: "BTC/USDT" },
     { name: "BNB/USDT" },

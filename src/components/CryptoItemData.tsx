@@ -1,7 +1,4 @@
-import React from "react";
-
 export default function CryptoItemData({ candleStickData }: any) {
-  console.log(candleStickData);
   return (
     <div className="flex-[1] shadow-lg">
       <div className="p-2 mt-2">
