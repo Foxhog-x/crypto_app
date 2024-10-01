@@ -1,8 +1,9 @@
 import React from "react";
 
-export default function CryptoItemData() {
+export default function CryptoItemData({ candleStickData }: any) {
+  console.log(candleStickData);
   return (
-    <div className="flex-[1] border bg-green-200">
+    <div className="flex-[1] shadow-lg">
       <div className="p-2 mt-2">
         <div className=" flex flex-col gap-3">
           <div className="flex justify-between ">
