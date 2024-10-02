@@ -7,7 +7,7 @@ export default function Header() {
         alt="COIN img"
       /> */}
 
-      <div className="text-4xl">Crypto App</div>
+      <div className="text-4xl p-1">Crypto App</div>
     </div>
   );
 }
