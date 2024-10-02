@@ -55,7 +55,9 @@ export default function ChartCandle() {
           secondsVisible: false,
           tickMarkFormatter: (time: UTCTimestamp) => {
             const date = new Date(time * 1000);
-            return date.toLocaleTimeString();
+            return date.toLocaleTimeString("en-IN", {
+              timeZone: "Asia/Kolkata",
+            });
           },
         },
       });
